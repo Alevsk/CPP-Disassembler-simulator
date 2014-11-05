@@ -1,0 +1,51 @@
+CPU
+
+Registros
+---------
+Rip	Instruction pointer
+Rir	Instruction register (2 decode instruction)
+X	acumulator or Generic register
+Y	acumulator or Generic register
+MAR	
+Rmb	Register Memory buffer
+Banderas
+
+memoria
+-------
+1K * 4Bytes (sizeof int)
+
+juego de instrucciones
+----------------------
+end		; detiene la simulacion
+jmp #		; IP <- #
+mov M,R		; mem <- reg
+mov R,M		; reg <- mem
+add R1,R2	; reg1 <- reg1+reg2
+mov R,#		; reg <- Numero cte.
+add R,#		; reg <- Reg+num_Cte
+inc R		; reg <-reg+1
+dec R		; reg <- reg-1
+jz  R,#		; if R=0: IP=#
+
+codificadas
+-----------
+  0000	0	end
+  0001	1	jmp #
+  0010	2	mov x,#
+  0011	3	mov y,#
+  0100	4	mov M,x
+  0101	5	mov M,y
+  0110	6	mov x,M
+  0111	7	mov y,M
+  1000	 8	add x,y
+  1001	 9	add y,x
+  1010	10	add x,#
+  1011	11	add y,#
+  1100	12	inc x
+  1101	13	inc y
+  1110	14	dec x
+  1111	15	dec y
+1 0000	16	jz x,#
+1 0001	17	jz y,#
+
+
